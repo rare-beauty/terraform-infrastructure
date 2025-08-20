@@ -11,7 +11,7 @@ variable "dns_prefix" {
   type = string
 }
 variable "node_count" {
-  type = string
+  type = number
 }
 variable "vm_size" {
   type = string
