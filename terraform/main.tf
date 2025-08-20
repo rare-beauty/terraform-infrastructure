@@ -1,4 +1,4 @@
-module "resourcegroup" {
+/* module "resourcegroup" {
   source                  = "./modules/resourcegroup"
   resource_group_name     = var.resource_group_name
   resource_group_location = var.resource_group_location
@@ -57,3 +57,4 @@ module "azure_Acr" {
   admin_enabled       = var.admin_enabled
   tags                = var.tags
 }
+*/
