@@ -19,3 +19,10 @@ variable "vm_size" {
 variable "environment" {
   type = string
 }
+variable "vnet_subnet_id" {
+  type = string
+}
+
+variable "acr_id" {
+  type = string
+}
