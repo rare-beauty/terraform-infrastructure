@@ -9,6 +9,8 @@ resource "azurerm_key_vault" "my_kv" {
 
   enable_rbac_authorization = var.enable_rbac_authorization
 
+  public_network_access_enabled = false  # closes public access
+
   # leave public access default (enabled) for simplicity
 
   tags = {
