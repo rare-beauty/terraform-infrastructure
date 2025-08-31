@@ -24,9 +24,9 @@ resource "azurerm_key_vault" "my_kv" {
 }
 
 # ✅ CKV2_AZURE_32: Private Endpoint (optional)
-#locals {
- # kv_pe_enabled = var.enable_private_endpoint && var.subnet_id != null
-#}
+locals {
+  kv_pe_enabled = var.enable_private_endpoint && var.subnet_id != null
+}
 
 resource "azurerm_private_endpoint" "kv_pe" {
   count               = local.kv_pe_enabled ? 1 : 0
@@ -46,12 +46,12 @@ resource "azurerm_private_endpoint" "kv_pe" {
 }
 
 # Private DNS (optional – create only if asked)
-#resource "azurerm_private_dns_zone" "kv_zone" {
- # count               = (local.kv_pe_enabled && var.create_dns_zone) ? 1 : 0
-  #name                = "privatelink.vaultcore.azure.net"
-  #resource_group_name = var.rg_name
-  #tags                = var.tags
-#}
+resource "azurerm_private_dns_zone" "kv_zone" {
+  count               = (local.kv_pe_enabled && var.create_dns_zone) ? 1 : 0
+  name                = "privatelink.vaultcore.azure.net"
+  resource_group_name = var.rg_name
+  tags                = var.tags
+}
 
 resource "azurerm_private_dns_zone_virtual_network_link" "kv_zone_link" {
   count                 = (local.kv_pe_enabled && var.create_dns_zone && var.vnet_id != null) ? 1 : 0
