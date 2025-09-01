@@ -7,5 +7,20 @@ resource "azurerm_container_registry" "my_acr" {
   sku                 = var.sku
   admin_enabled       = var.admin_enabled
   public_network_access_enabled = var.public_network_access_enabled
+  zone_redundancy_enabled       = var.zone_redundancy_enabled
+  data_endpoint_enabled         = var.data_endpoint_enabled
+
+   retention_policy {                                                
+    days   = var.retention_days
+    status = "enabled"
+  }
+
+  dynamic "georeplications" {                                       
+    for_each = var.georeplication_locations
+    content {
+      location                = georeplications.value
+      zone_redundancy_enabled = true
+    }
+  }
   tags = var.tags
 }
