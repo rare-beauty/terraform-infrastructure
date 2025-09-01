@@ -36,3 +36,21 @@ variable "public_network_access_enabled" {
   description = "Allow public network access to ACR"
   default = false
 }
+
+variable "zone_redundancy_enabled" {
+  type = bool
+  default = true
+}
+variable "data_endpoint_enabled" {
+  type = bool
+  default = true
+}
+variable "retention_days" {
+  type = number
+  default = true
+}
+
+variable "georeplication_locations" {
+  type = list(string)
+  default = []
+}
