@@ -7,13 +7,7 @@ resource "azurerm_key_vault" "my_kv" {
   purge_protection_enabled   = var.purge_protection_enabled
   soft_delete_retention_days = var.soft_delete_retention_days
 
-  enable_rbac_authorization = var.enable_rbac_authorization
-
-  public_network_access_enabled = false  # closes public access
-
-  # leave public access default (enabled) for simplicity
-
-  tags = {
-    environment = "Production"
-  }
+  enable_rbac_authorization     = var.enable_rbac_authorization
+  public_network_access_enabled = var.public_network_access_enabled
+  tags = var.tags
 }
