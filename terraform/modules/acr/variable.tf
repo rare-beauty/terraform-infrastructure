@@ -30,3 +30,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "public_network_access_enabled" {
+  type = bool
+  description = "Allow public network access to ACR"
+  default = false
+}
