@@ -47,7 +47,7 @@ variable "data_endpoint_enabled" {
 }
 variable "retention_days" {
   type = number
-  default = true
+  default = 7
 }
 
 variable "georeplication_locations" {
