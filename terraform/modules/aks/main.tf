@@ -8,7 +8,12 @@ resource "azurerm_kubernetes_cluster" "my_aks" {
   private_cluster_enabled  = var.private_cluster_enabled         
   automatic_channel_upgrade = var.automatic_channel_upgrade      
   local_account_disabled    = var.local_account_disabled         
-  api_server_authorized_ip_ranges = var.api_server_authorized_ip_ranges # ✅ CKV_AZURE_6 (public only)
+ # api_server_authorized_ip_ranges = var.api_server_authorized_ip_ranges # ✅ CKV_AZURE_6 (public only)
+
+  api_server_access_profile {
+    authorized_ip_ranges = var.api_server_authorized_ip_ranges
+  }
+
 
   default_node_pool {
     name       = "default"
