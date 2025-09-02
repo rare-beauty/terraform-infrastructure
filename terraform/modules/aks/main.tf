@@ -16,7 +16,7 @@ resource "azurerm_kubernetes_cluster" "my_aks" {
     vm_size    = var.vm_size
 
     max_pods                     = var.max_pods                  
-    host_encryption_enabled      = var.host_encryption_enabled   
+   # host_encryption_enabled      = var.host_encryption_enabled   
     only_critical_addons_enabled = true                         
     os_disk_type                 = var.os_disk_type              
    # disk_encryption_set_id       = var.disk_encryption_set_id    
@@ -41,7 +41,7 @@ resource "azurerm_kubernetes_cluster" "my_aks" {
     dns_service_ip     = "10.2.0.10"
     docker_bridge_cidr = "172.17.0.1/16"
     service_cidr       = "10.2.0.0/24"
-    subnet_id          = var.vnet_subnet_id
+  #  subnet_id          = var.vnet_subnet_id
   }
 
   tags = { Environment = var.environment }
