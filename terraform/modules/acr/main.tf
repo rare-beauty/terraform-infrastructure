@@ -12,7 +12,7 @@ resource "azurerm_container_registry" "my_acr" {
 
    retention_policy {                                                
     days   = var.retention_days
-    status = "enabled"
+    enabled = true
   }
 
   dynamic "georeplications" {                                       
