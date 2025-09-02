@@ -24,9 +24,9 @@ resource "azurerm_kubernetes_cluster" "my_aks" {
   }
 
   # Logs to Azure Monitor (Log Analytics)
-  oms_agent {                                                   
-    log_analytics_workspace_id = var.log_analytics_workspace_id
-  }
+ # oms_agent {                                                   
+  #  log_analytics_workspace_id = var.log_analytics_workspace_id
+  #}
 
   # Secrets Store CSI Driver rotation
   key_vault_secrets_provider {                                  
