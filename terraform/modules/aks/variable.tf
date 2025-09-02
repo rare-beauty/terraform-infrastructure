@@ -113,9 +113,9 @@ variable "api_server_authorized_ip_ranges" {
 }
 
 # Logging (Azure Monitor/Log Analytics costs $, so keep optional)
-variable "log_analytics_workspace_id" {
-  type        = string
-  description = "Log Analytics Workspace ID. Leave null to skip (saves cost)."
-  default     = null
-}
+#variable "log_analytics_workspace_id" {
+#  type        = string
+#  description = "Log Analytics Workspace ID. Leave null to skip (saves cost)."
+#  default     = null
+#}
 
