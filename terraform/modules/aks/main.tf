@@ -19,7 +19,7 @@ resource "azurerm_kubernetes_cluster" "my_aks" {
     host_encryption_enabled      = var.host_encryption_enabled   
     only_critical_addons_enabled = true                         
     os_disk_type                 = var.os_disk_type              
-    disk_encryption_set_id       = var.disk_encryption_set_id    
+   # disk_encryption_set_id       = var.disk_encryption_set_id    
     vnet_subnet_id               = var.vnet_subnet_id
   }
 
