@@ -39,11 +39,11 @@ variable "public_network_access_enabled" {
 
 variable "zone_redundancy_enabled" {
   type = bool
-  default = true
+  default = false
 }
 variable "data_endpoint_enabled" {
   type = bool
-  default = true
+  default = false
 }
 variable "retention_days" {
   type = number
