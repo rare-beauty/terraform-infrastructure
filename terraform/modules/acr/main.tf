@@ -9,8 +9,10 @@ resource "azurerm_container_registry" "my_acr" {
   admin_enabled       = var.admin_enabled
 
   public_network_access_enabled = var.public_network_access_enabled
-  zone_redundancy_enabled       = var.zone_redundancy_enabled
-  data_endpoint_enabled         = var.data_endpoint_enabled
+
+  # 👇 Only set on Premium; otherwise omit (null)
+  zone_redundancy_enabled = var.sku == "Premium" ? var.zone_redundancy_enabled : null
+  data_endpoint_enabled   = var.sku == "Premium" ? var.data_endpoint_enabled   : null
 
   # ✅ Only add retention when Premium
   dynamic "retention_policy" {
