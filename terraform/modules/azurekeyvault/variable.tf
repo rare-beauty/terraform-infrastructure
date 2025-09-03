@@ -28,7 +28,7 @@ variable "public_network_access_enabled" {
   type    = bool
   # Recommend default = true so dev still works without PE/firewall.
   # Set to false from the calling module or tfvars when you're ready.
-  default = true
+  default = false
 }
 
 variable "tags" {
