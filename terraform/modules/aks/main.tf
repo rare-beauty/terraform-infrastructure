@@ -49,5 +49,11 @@ resource "azurerm_kubernetes_cluster" "my_aks" {
   #  subnet_id          = var.vnet_subnet_id
   }
 
+  addon_profile {
+    azure_policy {
+      enabled = var.enable_azure_policy
+    }
+  }
+
   tags = { Environment = var.environment }
 }
