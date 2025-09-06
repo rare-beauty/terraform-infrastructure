@@ -20,4 +20,11 @@ variable "assignments" {
     role_definition = string
     scope           = string
   }))
+  default = []
 }
+
+variable "enabled" {
+  type    = bool
+  default = true
+}
+
