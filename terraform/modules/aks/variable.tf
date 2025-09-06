@@ -112,6 +112,12 @@ variable "api_server_authorized_ip_ranges" {
   default     = []
 }
 
+variable "enable_azure_policy" {
+  description = "Enable Azure Policy add-on for AKS"
+  type        = bool
+  default     = false
+}
+
 # Logging (Azure Monitor/Log Analytics costs $, so keep optional)
 #variable "log_analytics_workspace_id" {
 #  type        = string
