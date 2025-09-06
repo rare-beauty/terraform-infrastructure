@@ -10,4 +10,14 @@ resource "azurerm_key_vault" "my_kv" {
   enable_rbac_authorization     = var.enable_rbac_authorization
   public_network_access_enabled = var.public_network_access_enabled
   tags = var.tags
+
+  network_acls {
+    default_action = var.kv_network_default_action   # "Deny"
+    bypass         = var.kv_bypass                   # "AzureServices"
+    ip_rules                   = var.kv_ip_rules
+    virtual_network_subnet_ids = var.kv_vnet_subnet_ids
+  }
+
 }
+
+
