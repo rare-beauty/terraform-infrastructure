@@ -35,3 +35,28 @@ variable "tags" {
   type    = map(string)
   default = {}
 }
+
+variable "kv_network_default_action" {
+  description = "Default action for KV firewall"
+  type        = string
+  default     = "Deny"
+}
+
+variable "kv_bypass" {
+  description = "Bypass for KV firewall"
+  type        = string
+  default     = "AzureServices"
+}
+
+variable "kv_ip_rules" {
+  description = "IP CIDRs allowed to access KV (when public is enabled)"
+  type        = list(string)
+  default     = []
+}
+
+variable "kv_vnet_subnet_ids" {
+  description = "Subnet IDs allowed to access KV"
+  type        = list(string)
+  default     = []
+}
+
