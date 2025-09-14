@@ -4,6 +4,13 @@ resource "azurerm_kubernetes_cluster" "my_aks" {
   resource_group_name = var.rgname
   dns_prefix          = var.dns_prefix
 
+# Enable the cluster’s OIDC issuer so Kubernetes service account tokens can be
+# validated by Entra ID. Required for Azure AD Workload Identity. Safe to enable.
+  oidc_issuer_enabled       = true
+
+# Lets pods assume a User Assigned Managed Identity via a ServiceAccount annotation—no secrets needed.
+  workload_identity_enabled = true
+
   sku_tier                 = var.sku_tier                       
   private_cluster_enabled  = var.private_cluster_enabled         
   automatic_channel_upgrade = var.automatic_channel_upgrade      
