@@ -28,6 +28,15 @@ variable "acr_id" {
   default     = null
 }
 
+variable "oidc_issuer_enabled" { 
+  type = bool 
+  default = true 
+}
+variable "workload_identity_enabled" { 
+  type = bool 
+  default = true
+}
+
 # Cost-friendly cluster settings
 variable "sku_tier" {
   type        = string
